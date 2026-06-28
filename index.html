@@ -206,7 +206,10 @@
   .koi-card .thumb img{width:100%;height:100%;object-fit:cover;}
   .koi-card .meta{padding:14px 14px 16px;}
   .koi-card .meta h4{font-family:'Inter',sans-serif;font-size:0.92rem;font-weight:600;margin:0 0 6px;line-height:1.3;}
-  .koi-card .meta .price{font-family:'JetBrains Mono',monospace;color:var(--koi);font-size:0.9rem;}
+  .koi-card .meta .price{font-family:'JetBrains Mono',monospace;color:var(--koi);font-size:0.9rem;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .koi-card .meta .stock{font-family:'Inter',sans-serif;font-size:0.7rem;font-weight:600;color:#fff;background:var(--gold);padding:2px 8px;border-radius:999px;}
+  .koi-card .meta h4 .rare{font-family:'Inter',sans-serif;font-size:0.66rem;font-weight:700;text-transform:uppercase;color:var(--koi);border:1px solid var(--koi);border-radius:999px;padding:1px 7px;margin-left:6px;letter-spacing:0.04em;}
+  .koi-count{margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--pond);}
 
   .pond-service{
     background:var(--ink);color:var(--sand);
@@ -443,10 +446,27 @@
       </article>
       <article class="koi-card">
         <div class="thumb"><img src="https://www.blueribbonkoi.com/cdn/shop/files/WYSIWYGDOITSUSHOWA_220x.jpg?v=1696175293" alt="Doitsu Showa koi"></div>
-        <div class="meta"><h4>Doitsu Showa WYSIWYG</h4><p class="price">$1,500.00</p></div>
+        <div class="meta"><h4>Doitsu Showa WYSIWYG</h4><p class="price">$1,500.00 <span class="stock">Only 1 left</span></p></div>
+      </article>
+      <article class="koi-card">
+        <div class="thumb"><img src="https://www.blueribbonkoi.com/cdn/shop/files/GinRinGoshikiE8247_220x.jpg?v=1696181485" alt="Gin Rin Ochiba Shiguri koi E8229"></div>
+        <div class="meta"><h4>Gin Rin Ochiba Shiguri E8229</h4><p class="price">$800.00</p></div>
+      </article>
+      <article class="koi-card">
+        <div class="thumb"><img src="https://www.blueribbonkoi.com/cdn/shop/files/Goshikiwysiwyg_220x.jpg?v=1689276410" alt="Kogani Ochiba Shiguri koi"></div>
+        <div class="meta"><h4>Kogani Ochiba Shiguri WYSIWYG <span class="rare">Rare</span></h4><p class="price">$950.00</p></div>
+      </article>
+      <article class="koi-card">
+        <div class="thumb"><img src="https://www.blueribbonkoi.com/cdn/shop/files/Showa500x298wysiwyg_220x.jpg?v=1689275354" alt="Showa koi"></div>
+        <div class="meta"><h4>Showa WYSIWYG</h4><p class="price">$1,500.00</p></div>
+      </article>
+      <article class="koi-card">
+        <div class="thumb"><img src="https://www.blueribbonkoi.com/cdn/shop/files/KinShiroUtsuri_220x.jpg?v=1689274416" alt="Kin Shiro Utsuri koi"></div>
+        <div class="meta"><h4>Kin Shiro Utsuri WYSIWYG</h4><p class="price">$1,500.00</p></div>
       </article>
     </div>
-    <p style="margin-top:28px;"><a href="https://www.blueribbonkoi.com/collections/wysiwyg-koi" class="btn ghost">See full koi inventory ↗</a></p>
+    <p class="koi-count">Showing all 13 in-stock WYSIWYG koi · highest price $1,800.00</p>
+    <p style="margin-top:28px;"><a href="https://www.blueribbonkoi.com/collections/wysiwyg-koi" class="btn ghost">View live inventory on Shopify ↗</a></p>
   </section>
 
   <section id="pond-service" class="wrap">
