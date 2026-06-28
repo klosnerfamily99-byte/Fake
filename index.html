@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Blue Ribbon Koi & Marine — Catharpin, VA</title>
+<meta name="description" content="Quality Japanese koi, marine fish, and corals. Premier pond service and maintenance in Catharpin, VA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B2027;
+    --pond:#1B4965;
+    --sand:#F2E9DC;
+    --foam:#FBF7F0;
+    --koi:#C2410C;
+    --gold:#E2A33B;
+    --line:rgba(11,32,39,0.12);
+    --radius:14px;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--foam);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;margin:0;letter-spacing:-0.01em;}
+  .mono{font-family:'JetBrains Mono',monospace;letter-spacing:0.02em;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    color:var(--koi);
+  }
+
+  /* ---------- ripple motif (signature element) ---------- */
+  .ripple-divider{
+    position:relative;
+    height:48px;
+    margin:0 auto;
+    width:100%;
+    overflow:hidden;
+  }
+  .ripple-divider svg{position:absolute;top:0;left:50%;transform:translateX(-50%);width:140%;}
+
+  @keyframes rippleOut{
+    0%{ transform:scale(0.4); opacity:0.55; }
+    100%{ transform:scale(1.6); opacity:0; }
+  }
+  .ripple-hover{position:relative; overflow:visible;}
+  .ripple-hover::before,
+  .ripple-hover::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border:1.5px solid var(--koi);
+    border-radius:50%;
+    opacity:0;
+    pointer-events:none;
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .ripple-hover:hover::before{animation:rippleOut 0.9s ease-out;}
+    .ripple-hover:hover::after{animation:rippleOut 0.9s 0.18s ease-out;}
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,247,240,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;
+    max-width:var(--maxw);margin:0 auto;
+  }
+  .logo{display:flex;align-items:center;gap:10px;font-size:1.05rem;font-weight:600;}
+  .logo svg{width:30px;height:30px;flex-shrink:0;}
+  nav.primary{display:none;gap:28px;font-size:0.92rem;font-weight:500;}
+  nav.primary a{position:relative;padding:6px 0;}
+  nav.primary a:hover{color:var(--koi);}
+  .nav-actions{display:flex;align-items:center;gap:14px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--koi);color:#fff;
+    padding:10px 18px;border-radius:999px;
+    font-size:0.86rem;font-weight:600;
+    border:none;cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px -8px rgba(194,65,12,0.6);}
+  .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line);}
+  .menu-toggle{
+    display:flex;flex-direction:column;justify-content:center;gap:5px;
+    width:34px;height:34px;background:none;border:none;cursor:pointer;
+  }
+  .menu-toggle span{display:block;height:2px;background:var(--ink);border-radius:2px;}
+
+  .mobile-nav{
+    display:none;
+    flex-direction:column;
+    background:var(--foam);
+    border-bottom:1px solid var(--line);
+    padding:8px 24px 18px;
+  }
+  .mobile-nav.open{display:flex;}
+  .mobile-nav a{padding:12px 0;font-size:1rem;border-bottom:1px solid var(--line);font-weight:500;}
+  .mobile-nav a:last-child{border-bottom:none;}
+
+  @media (min-width:880px){
+    nav.primary{display:flex;}
+    .menu-toggle{display:none;}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    min-height:86vh;
+    display:flex;align-items:flex-end;
+    background:linear-gradient(180deg, rgba(11,32,39,0.15) 0%, rgba(11,32,39,0.78) 100%),
+      url('https://www.blueribbonkoi.com/cdn/shop/collections/KOI_Shot_for_site_1100x.jpg?v=1689265209') center/cover no-repeat;
+  }
+  .hero-inner{
+    width:100%;
+    padding:60px 24px 64px;
+    max-width:var(--maxw);margin:0 auto;
+    color:var(--foam);
+  }
+  .hero .eyebrow{color:var(--gold);}
+  .hero h1{
+    font-size:clamp(2.2rem, 6vw, 4.4rem);
+    line-height:1.02;
+    margin:14px 0 18px;
+    max-width:14ch;
+  }
+  .hero p.lede{
+    font-size:clamp(1rem, 2vw, 1.2rem);
+    max-width:46ch;
+    color:rgba(251,247,240,0.86);
+    margin:0 0 28px;
+  }
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;}
+  .hero-cta .btn.ghost{color:var(--foam);border-color:rgba(251,247,240,0.5);}
+
+  .banner-strip{
+    background:var(--ink);
+    color:var(--sand);
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.78rem;
+    letter-spacing:0.06em;
+    padding:10px 24px;
+    text-align:center;
+    overflow:hidden;
+    white-space:nowrap;
+  }
+  .banner-strip span{display:inline-block;padding:0 26px;}
+
+  /* ---------- sections ---------- */
+  section{padding:72px 0;}
+  .section-head{max-width:640px;margin-bottom:40px;}
+  .section-head h2{font-size:clamp(1.7rem,3.4vw,2.4rem);margin-top:10px;}
+  .section-head p{color:var(--pond);font-size:1.02rem;margin-top:12px;line-height:1.55;}
+
+  .collections-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
+  }
+  .collection-card{
+    position:relative;border-radius:var(--radius);overflow:hidden;
+    aspect-ratio:4/5;
+    background:var(--pond);
+  }
+  .collection-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+  .collection-card:hover img{transform:scale(1.06);}
+  .collection-card .label{
+    position:absolute;left:0;right:0;bottom:0;
+    padding:20px;
+    background:linear-gradient(180deg, transparent, rgba(11,32,39,0.85));
+    color:var(--foam);
+  }
+  .collection-card .label .eyebrow{color:var(--gold);}
+  .collection-card .label h3{font-size:1.3rem;margin-top:4px;}
+
+  .koi-grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));
+    gap:16px;
+  }
+  .koi-card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;
+    transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .koi-card:hover{box-shadow:0 14px 30px -16px rgba(11,32,39,0.35);transform:translateY(-3px);}
+  .koi-card .thumb{aspect-ratio:1/1;overflow:hidden;background:var(--sand);}
+  .koi-card .thumb img{width:100%;height:100%;object-fit:cover;}
+  .koi-card .meta{padding:14px 14px 16px;}
+  .koi-card .meta h4{font-family:'Inter',sans-serif;font-size:0.92rem;font-weight:600;margin:0 0 6px;line-height:1.3;}
+  .koi-card .meta .price{font-family:'JetBrains Mono',monospace;color:var(--koi);font-size:0.9rem;}
+
+  .pond-service{
+    background:var(--ink);color:var(--sand);
+    border-radius:24px;
+    margin:0 24px;
+    max-width:calc(var(--maxw) - 48px);
+    margin-left:auto;margin-right:auto;
+    padding:56px clamp(24px,5vw,64px);
+    display:grid;gap:36px;
+    grid-template-columns:1.1fr 0.9fr;
+    align-items:center;
+  }
+  .pond-service .eyebrow{color:var(--gold);}
+  .pond-service h2{color:var(--foam);font-size:clamp(1.7rem,3.2vw,2.3rem);margin-top:10px;}
+  .pond-service p{color:rgba(242,233,220,0.82);line-height:1.6;margin-top:14px;}
+  .pond-list{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;}
+  .pond-list li{display:flex;gap:10px;align-items:flex-start;font-size:0.95rem;color:var(--sand);}
+  .pond-list li svg{flex-shrink:0;margin-top:3px;}
+  .pond-visual{
+    border-radius:18px;overflow:hidden;aspect-ratio:4/5;
+    background:url('https://www.blueribbonkoi.com/cdn/shop/files/Koi_Shopping_2024_pg_4_1_1280x.png?v=1715205919') center/cover;
+  }
+
+  @media (max-width:760px){
+    .pond-service{grid-template-columns:1fr;padding:40px 24px;border-radius:18px;margin:0 16px;}
+  }
+
+  .story{
+    display:grid;grid-template-columns:0.9fr 1.1fr;gap:48px;align-items:center;
+  }
+  .story-visual{
+    aspect-ratio:1/1;border-radius:var(--radius);overflow:hidden;
+    background:url('https://www.blueribbonkoi.com/cdn/shop/files/black_box_d98595ec-93fd-4c7e-bcba-caa61290e829_1100x.png?v=1706640119') center/cover;
+  }
+  @media (max-width:780px){.story{grid-template-columns:1fr;}}
+
+  .hours-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;margin-top:28px;
+  }
+  .hours-card{
+    border:1px solid var(--line);border-radius:var(--radius);padding:20px;
+    background:#fff;
+  }
+  .hours-card .eyebrow{margin-bottom:8px;}
+  .hours-card .big{font-family:'Fraunces',serif;font-size:1.4rem;}
+
+  footer{
+    background:var(--ink);color:var(--sand);
+    padding:64px 0 28px;
+    margin-top:40px;
+  }
+  .footer-grid{
+    display:grid;gap:36px;
+    grid-template-columns:1.3fr repeat(3,1fr);
+  }
+  @media (max-width:880px){.footer-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.footer-grid{grid-template-columns:1fr;}}
+  footer h3{color:var(--foam);font-size:1rem;margin-bottom:14px;}
+  footer ul{list-style:none;padding:0;margin:0;display:grid;gap:9px;}
+  footer a{color:rgba(242,233,220,0.78);font-size:0.92rem;}
+  footer a:hover{color:var(--gold);}
+  .footer-bottom{
+    border-top:1px solid rgba(242,233,220,0.15);
+    margin-top:46px;padding-top:22px;
+    display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
+    font-size:0.8rem;color:rgba(242,233,220,0.6);
+  }
+  .social-row{display:flex;gap:14px;}
+  .social-row a{width:34px;height:34px;border:1px solid rgba(242,233,220,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+  .social-row a:hover{border-color:var(--gold);color:var(--gold);}
+
+  /* ---------- AI care assistant widget ---------- */
+  #ai-toggle{
+    position:fixed;bottom:22px;right:22px;z-index:60;
+    width:58px;height:58px;border-radius:50%;
+    background:var(--koi);color:#fff;border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 12px 28px -10px rgba(194,65,12,0.65);
+  }
+  #ai-panel{
+    position:fixed;bottom:90px;right:22px;z-index:60;
+    width:min(340px, calc(100vw - 36px));
+    max-height:70vh;
+    background:#fff;border-radius:18px;
+    border:1px solid var(--line);
+    box-shadow:0 24px 60px -20px rgba(11,32,39,0.4);
+    display:none;flex-direction:column;overflow:hidden;
+  }
+  #ai-panel.open{display:flex;}
+  #ai-panel .ai-head{
+    background:var(--ink);color:var(--sand);padding:16px 18px;
+  }
+  #ai-panel .ai-head .eyebrow{color:var(--gold);}
+  #ai-panel .ai-head h4{font-family:'Fraunces',serif;font-size:1.05rem;margin-top:4px;color:var(--foam);}
+  #ai-log{flex:1;overflow-y:auto;padding:14px 16px;display:flex;flex-direction:column;gap:10px;font-size:0.88rem;}
+  #ai-log .msg{padding:10px 13px;border-radius:12px;max-width:88%;line-height:1.45;}
+  #ai-log .msg.bot{background:var(--sand);align-self:flex-start;}
+  #ai-log .msg.user{background:var(--koi);color:#fff;align-self:flex-end;}
+  #ai-suggest{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 12px;}
+  #ai-suggest button{
+    font-size:0.76rem;border:1px solid var(--line);background:#fff;
+    padding:6px 10px;border-radius:999px;cursor:pointer;
+  }
+  #ai-suggest button:hover{border-color:var(--koi);color:var(--koi);}
+  #ai-form{display:flex;border-top:1px solid var(--line);}
+  #ai-input{flex:1;border:none;padding:13px 14px;font-size:0.88rem;font-family:inherit;outline:none;}
+  #ai-form button{background:var(--ink);color:var(--foam);border:none;padding:0 18px;cursor:pointer;font-size:0.85rem;}
+
+  .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--koi);outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-row">
+    <a href="#top" class="logo">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="19" stroke="#C2410C" stroke-width="1.4"/>
+        <path d="M11 23c4-7 9-10 14-9 3 .6 4 3 2 5-2 2-5 1-5-1.4" stroke="#1B4965" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <circle cx="25" cy="16.5" r="1.1" fill="#1B4965"/>
+      </svg>
+      Blue Ribbon Koi &amp; Marine
+    </a>
+    <nav class="primary">
+      <a href="#koi">Koi</a>
+      <a href="#coral">Coral</a>
+      <a href="#dry-goods">Dry Goods</a>
+      <a href="#pond-service">Pond Service</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="tel:7037537566" class="btn ghost" style="display:none;">703.753.7566</a>
+      <a href="https://www.blueribbonkoi.com/" class="btn">Shop Live Site ↗</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#koi">Koi</a>
+    <a href="#coral">Coral</a>
+    <a href="#dry-goods">Dry Goods</a>
+    <a href="#pond-service">Pond Service</a>
+    <a href="#visit">Visit Us</a>
+    <a href="tel:7037537566">Call 703.753.7566</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="padding:0;">
+    <div class="hero-inner">
+      <p class="eyebrow">Catharpin, Virginia · Open Wed–Sun</p>
+      <h1>Decades of devotion to koi, coral, and the water they live in.</h1>
+      <p class="lede">Japanese koi from 4" to 36", thousands of gallons of reef, and a pond-service team that treats your water like their own.</p>
+      <div class="hero-cta">
+        <a href="#koi" class="btn">Browse WYSIWYG Koi</a>
+        <a href="#pond-service" class="btn ghost">Pond Service →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="banner-strip">
+    <span>★ Fantastic Fridays — last Friday of every month, 10am–9pm, flash sales from 6pm</span>
+    <span>★ Coral orders over $350 ship free with code FREESHIPPING</span>
+    <span>★ Private &amp; personal koi shopping available by appointment</span>
+  </div>
+
+  <div class="ripple-divider" aria-hidden="true">
+    <svg viewBox="0 0 1200 48" preserveAspectRatio="none">
+      <circle cx="600" cy="0" r="6" fill="none" stroke="#1B4965" stroke-width="1" opacity="0.5"/>
+      <circle cx="600" cy="0" r="20" fill="none" stroke="#1B4965" stroke-width="1" opacity="0.3"/>
+      <circle cx="600" cy="0" r="38" fill="none" stroke="#C2410C" stroke-width="1" opacity="0.25"/>
+    </svg>
+  </div>
+
+  <section id="collections" class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">What we keep in the water</p>
+      <h2>Three collections, one obsession with water quality.</h2>
+    </div>
+    <div class="collections-grid">
+      <a class="collection-card ripple-hover" href="#koi">
+        <img src="https://www.blueribbonkoi.com/cdn/shop/collections/KOI_Shot_for_site_1100x.jpg?v=1689265209" alt="Japanese koi swimming">
+        <div class="label"><p class="eyebrow">Freshwater</p><h3>Koi</h3></div>
+      </a>
+      <a class="collection-card ripple-hover" href="#coral" id="coral">
+        <img src="https://www.blueribbonkoi.com/cdn/shop/collections/WYSIWYG_Coral_1100x.jpg?v=1689262159" alt="WYSIWYG coral colony">
+        <div class="label"><p class="eyebrow">Reef</p><h3>Coral</h3></div>
+      </a>
+      <a class="collection-card ripple-hover" href="#dry-goods" id="dry-goods">
+        <img src="https://www.blueribbonkoi.com/cdn/shop/files/BRK_Banner_image_1280x.png?v=1691598227" alt="Aquarium and pond equipment">
+        <div class="label"><p class="eyebrow">Equipment</p><h3>Dry Goods</h3></div>
+      </a>
+    </div>
+  </section>
+
+  <section id="koi" class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">In-store pick up only</p>
+      <h2>WYSIWYG Koi Selection</h2>
+      <p>What you see is exactly what you get — each koi below is an individual fish, hand-photographed in our own tanks.</p>
+    </div>
+    <div class="koi-grid">
+      <article class="koi-card">
+        <div class="thumb"><img src="https://www.blueribbonkoi.com/cdn/shop/files/7595Showa_220x.jpg?v=1696355019" alt="Showa 7595 koi"></div>
+        <div class="meta"><h4>Showa 7595 WYSIWYG</h4><p class="price">$1,000.00</p></div>
+      </article>
+      <article class="koi-card">
+        <div class="thumb"><img src="https://www.blueribbonkoi.com/cdn/shop/files/KinShowaButtefly-7676F340x340_220x.jpg?v=1696182682" alt="Kin Showa butterfly koi"></div>
+        <div class="meta"><h4>Kin Showa Butterfly 7676</h4><p class="price">$1,500.00</p></div>
+      </article>
+      <article class="koi-card">
+        <div class="thumb"><img src="https://www.blueribbonkoi.com/cdn/shop/files/Showa7612F340340_220x.jpg?v=1696182475" alt="Gin Rin Showa koi"></div>
+        <div class="meta"><h4>Gin Rin Showa 7612</h4><p class="price">$1,000.00</p></div>
+      </article>
+      <article class="koi-card">
+        <div class="thumb"><img src="https://www.blueribbonkoi.com/cdn/shop/files/OchibaShiguri8278F_220x.jpg?v=1696182219" alt="Gin Rin Ochiba Shiguri koi"></div>
+        <div class="meta"><h4>Gin Rin Ochiba Shiguri E8278</h4><p class="price">$800.00</p></div>
+      </article>
+      <article class="koi-card">
+        <div class="thumb"><img src="https://www.blueribbonkoi.com/cdn/shop/files/SHOWAWYSIWYG7700_220x.jpg?v=1696181804" alt="Showa 7700 koi"></div>
+        <div class="meta"><h4>Showa 7700 WYSIWYG</h4><p class="price">$1,500.00</p></div>
+      </article>
+      <article class="koi-card">
+        <div class="thumb"><img src="https://www.blueribbonkoi.com/cdn/shop/files/wysiwygSanke2023_220x.jpg?v=1696179552" alt="Sanke koi"></div>
+        <div class="meta"><h4>Sanke WYSIWYG</h4><p class="price">$1,500.00</p></div>
+      </article>
+      <article class="koi-card">
+        <div class="thumb"><img src="https://www.blueribbonkoi.com/cdn/shop/files/KohakuWYSIWYG23_220x.jpg?v=1696178363" alt="Kohaku koi"></div>
+        <div class="meta"><h4>Kohaku WYSIWYG</h4><p class="price">$800.00</p></div>
+      </article>
+      <article class="koi-card">
+        <div class="thumb"><img src="https://www.blueribbonkoi.com/cdn/shop/files/WYSIWYGDOITSUSHOWA_220x.jpg?v=1696175293" alt="Doitsu Showa koi"></div>
+        <div class="meta"><h4>Doitsu Showa WYSIWYG</h4><p class="price">$1,500.00</p></div>
+      </article>
+    </div>
+    <p style="margin-top:28px;"><a href="https://www.blueribbonkoi.com/collections/wysiwyg-koi" class="btn ghost">See full koi inventory ↗</a></p>
+  </section>
+
+  <section id="pond-service" class="wrap">
+    <div class="pond-service">
+      <div>
+        <p class="eyebrow">Koi pond service</p>
+        <h2>We treat your pond like it's the one in our own backyard.</h2>
+        <p>From a 40-gallon nano to a 20,000-gallon koi pond, our team builds and maintains healthy aquatic ecosystems across the region — water testing, filtration tuning, seasonal care, and emergency visits included.</p>
+        <ul class="pond-list">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#E2A33B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Routine water testing &amp; balancing</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#E2A33B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Filtration &amp; pump diagnostics</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#E2A33B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Seasonal transitions &amp; winterizing</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#E2A33B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Koi health checks &amp; quarantine guidance</li>
+        </ul>
+        <p style="margin-top:26px;"><a href="https://www.blueribbonkoi.com/pages/koi-maintenance-tips-and-services" class="btn">Learn About Pond Service ↗</a></p>
+      </div>
+      <div class="pond-visual" role="img" aria-label="Koi pond and shopping experience"></div>
+    </div>
+  </section>
+
+  <section id="story" class="wrap">
+    <div class="story">
+      <div class="story-visual" role="img" aria-label="Blue Ribbon Koi & Marine team"></div>
+      <div>
+        <p class="eyebrow">Our story</p>
+        <h2>Serving koi and marine enthusiasts for decades.</h2>
+        <p style="color:var(--pond); line-height:1.65; margin-top:14px;">Blue Ribbon Koi &amp; Marine started as a small aquarium counter and grew into one of the region's most trusted names in freshwater koi and reef husbandry — over 4,000 gallons of saltwater display tanks, SPS, LPS, and softy coral colonies, and a koi yard stocked with imported Japanese tosai. Every fish that leaves our store has been quarantined, fed, and watched by people who genuinely love this work.</p>
+        <p style="margin-top:20px;"><a href="https://www.blueribbonkoi.com/pages/about-us" class="btn ghost">Meet the Team ↗</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit" class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Plan a visit</p>
+      <h2>Store hours &amp; location</h2>
+    </div>
+    <div class="hours-grid">
+      <div class="hours-card">
+        <p class="eyebrow">Wed – Sat</p>
+        <p class="big">10am – 6pm</p>
+      </div>
+      <div class="hours-card">
+        <p class="eyebrow">Sunday</p>
+        <p class="big">10am – 5pm</p>
+      </div>
+      <div class="hours-card">
+        <p class="eyebrow">Mon &amp; Tue</p>
+        <p class="big">Closed</p>
+      </div>
+      <div class="hours-card">
+        <p class="eyebrow">Address</p>
+        <p class="big" style="font-size:1.05rem;">4641 Sudley Rd.<br>Catharpin, VA 20143</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <h3>Blue Ribbon Koi &amp; Marine</h3>
+      <p style="color:rgba(242,233,220,0.75); font-size:0.92rem; max-width:32ch; line-height:1.55;">4641 Sudley Rd, Catharpin, VA 20143</p>
+      <p style="margin-top:10px;"><a href="tel:7037537566" class="mono" style="color:var(--gold);">703.753.7566</a></p>
+      <p style="margin-top:4px;"><a href="mailto:John@blueribbonkoi.com" class="mono" style="color:var(--gold);">John@blueribbonkoi.com</a></p>
+      <div class="social-row" style="margin-top:18px;">
+        <a href="https://www.facebook.com/blueribbonkoi" aria-label="Facebook">f</a>
+        <a href="https://www.instagram.com/blueribbonaquatics/" aria-label="Instagram">ig</a>
+        <a href="https://www.youtube.com/@blueribbonkoiandmarine" aria-label="YouTube">yt</a>
+      </div>
+    </div>
+    <div>
+      <h3>Shop</h3>
+      <ul>
+        <li><a href="https://www.blueribbonkoi.com/collections/koi-fish">Koi Fish</a></li>
+        <li><a href="https://www.blueribbonkoi.com/collections/wysiwyg-corals">WYSIWYG Corals</a></li>
+        <li><a href="https://www.blueribbonkoi.com/collections/dry-goods-1">Dry Goods</a></li>
+        <li><a href="https://www.blueribbonkoi.com/collections/waterbox">Waterbox</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Resources</h3>
+      <ul>
+        <li><a href="https://www.blueribbonkoi.com/pages/about-us">About Us</a></li>
+        <li><a href="https://www.blueribbonkoi.com/pages/koi-maintenance-tips-and-services">Pond Maintenance</a></li>
+        <li><a href="https://www.blueribbonkoi.com/blogs/news">Tips &amp; Tricks</a></li>
+        <li><a href="https://www.blueribbonkoi.com/pages/contact-us">Contact Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Stock Lists</h3>
+      <ul>
+        <li><a href="https://www.blueribbonkoi.com/pages/copy-of-brk-in-store-stock-inventory">Freshwater Stock</a></li>
+        <li><a href="https://www.blueribbonkoi.com/pages/brk-in-store-stock-inventory">Saltwater Stock</a></li>
+        <li><a href="https://www.blueribbonkoi.com/pages/shipping-policy">Shipping &amp; Returns</a></li>
+        <li><a href="https://www.blueribbonkoi.com/pages/terms-and-conditions">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© <span id="year"></span> Blue Ribbon Koi &amp; Marine. Unofficial redesign concept.</span>
+    <span>Original store: <a href="https://www.blueribbonkoi.com/">blueribbonkoi.com</a></span>
+  </div>
+</footer>
+
+<!-- AI care assistant -->
+<button id="ai-toggle" aria-label="Open Koi & Coral Care Assistant" aria-expanded="false">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 6 5 10 5 14a7 7 0 0014 0c0-4-3-8-7-12z" stroke="white" stroke-width="1.6" fill="none"/></svg>
+</button>
+<div id="ai-panel" role="dialog" aria-label="Koi and coral care assistant">
+  <div class="ai-head">
+    <p class="eyebrow">AI Care Assistant</p>
+    <h4>Ask about koi &amp; coral care</h4>
+  </div>
+  <div id="ai-log">
+    <div class="msg bot">Hi! I can answer quick questions about koi health, pond water quality, coral care, and store info. Try one of the prompts below, or type your own.</div>
+  </div>
+  <div id="ai-suggest">
+    <button data-q="hours">Store hours?</button>
+    <button data-q="ammonia">Ammonia spike in pond</button>
+    <button data-q="quarantine">New koi quarantine</button>
+    <button data-q="coral light">Coral lighting basics</button>
+  </div>
+  <form id="ai-form">
+    <input id="ai-input" type="text" placeholder="Type a question…" autocomplete="off" aria-label="Type a question for the care assistant">
+    <button type="submit">Send</button>
+  </form>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  menuToggle.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', open);
+  });
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileNav.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // ---- Lightweight rule-based "AI" care assistant (fully client-side, no API key needed) ----
+  const aiToggle = document.getElementById('ai-toggle');
+  const aiPanel = document.getElementById('ai-panel');
+  const aiLog = document.getElementById('ai-log');
+  const aiForm = document.getElementById('ai-form');
+  const aiInput = document.getElementById('ai-input');
+
+  aiToggle.addEventListener('click', () => {
+    const open = aiPanel.classList.toggle('open');
+    aiToggle.setAttribute('aria-expanded', open);
+    if (open) aiInput.focus();
+  });
+
+  const knowledge = [
+    { keys: ['hour','open','close','sunday','monday'], a: "We're open Wed–Sat 10am–6pm and Sunday 10am–5pm. Closed Mondays & Tuesdays. 4641 Sudley Rd, Catharpin, VA 20143." },
+    { keys: ['ammonia','spike','nitrite','toxic'], a: "An ammonia spike usually means a bio-filter that hasn't caught up to bioload. Stop feeding for 24–48 hours, do a 20–30% water change, and add a bacterial supplement. Test daily until it reads zero, and give us a call if your koi show stress (gasping, clamped fins)." },
+    { keys: ['quarantine','new koi','new fish'], a: "New koi should be quarantined 2–4 weeks in a separate tank or pond section before joining your main pond — this protects your existing collection from parasites or disease that may not show symptoms right away." },
+    { keys: ['coral light', 'lighting', 'par'], a: "SPS corals generally want higher PAR (250–400+) and stable spectrum, LPS and softies are more forgiving around 100–200 PAR. Acclimate any new coral slowly over 1–2 weeks even if your lights seem similar to its old tank." },
+    { keys: ['price','cost','how much'], a: "Pricing varies by fish and size — our WYSIWYG koi above list current prices, and dry goods/coral pricing is on the live site. Want me to point you to a specific collection?" },
+    { keys: ['pond service','maintenance','clean'], a: "Our pond service team handles routine water testing, filtration tuning, seasonal transitions, and koi health checks for ponds of any size. Tap 'Learn About Pond Service' above to get in touch." },
+    { keys: ['contact','phone','email','call'], a: "Call us at 703.753.7566 or email John@blueribbonkoi.com — we're happy to help." },
+  ];
+
+  function respond(text){
+    const lower = text.toLowerCase();
+    const hit = knowledge.find(k => k.keys.some(key => lower.includes(key)));
+    return hit ? hit.a : "I don't have a canned answer for that yet — call us at 703.753.7566 or email John@blueribbonkoi.com and our team will help directly.";
+  }
+
+  function addMsg(text, who){
+    const div = document.createElement('div');
+    div.className = 'msg ' + who;
+    div.textContent = text;
+    aiLog.appendChild(div);
+    aiLog.scrollTop = aiLog.scrollHeight;
+  }
+
+  document.querySelectorAll('#ai-suggest button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const q = btn.textContent;
+      addMsg(q, 'user');
+      setTimeout(() => addMsg(respond(btn.dataset.q + ' ' + q), 'bot'), 250);
+    });
+  });
+
+  aiForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const val = aiInput.value.trim();
+    if (!val) return;
+    addMsg(val, 'user');
+    aiInput.value = '';
+    setTimeout(() => addMsg(respond(val), 'bot'), 250);
+  });
+</script>
+
+</body>
+</html>
